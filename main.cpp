@@ -134,4 +134,3 @@ int main()
     d1.adauga_film(c1);
 }
 
-/// salutare
