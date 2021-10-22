@@ -133,3 +133,5 @@ int main()
     REZERVARI d1("Laura", "Halloween", 100, 10, 20, {});
     d1.adauga_film(c1);
 }
+
+/// salutare
