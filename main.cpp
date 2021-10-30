@@ -14,106 +14,107 @@
 ///using namespace std;
 
 
-class SEDII_CINEMA{
+class SediuCinema{
 private:
     std::string adresa;
     std::string program;
 public:
-    SEDII_CINEMA(const std::string &adresa, const std::string &program) : adresa(adresa), program(program) {}  // Constructor initializare cu parametrii
+    SediuCinema(const std::string &adresa, const std::string &program) : adresa(adresa), program(program) {}  // Constructor initializare cu parametrii
 
-    friend std::ostream &operator<<(std::ostream &os, const SEDII_CINEMA &cinema) {         // Operator <<
+    friend std::ostream &operator<<(std::ostream &os, const SediuCinema &cinema) {         // Operator <<
         os << "adresa: " << cinema.adresa << " program: " << cinema.program << std::endl;
         return os;
     }
 };
 
-class CINEMA{
+class Cinema{
 private:
     std::string nume_cinema;
     std::string site_web;
     std::string nr_telefon;
-    std::vector<SEDII_CINEMA> SEDII;
+    std::vector<SediuCinema> Sedii;
 public:
-    void adauga_sediu(SEDII_CINEMA sediu){
-        SEDII.push_back(sediu);
+    void adauga_sediu(SediuCinema sediu){
+        Sedii.push_back(sediu);
     }
 
-    CINEMA(const std::string &numeCinema, const std::string &siteWeb, const std::string &nrTelefon, const std::vector<SEDII_CINEMA> &sedii) : nume_cinema(numeCinema), site_web(siteWeb), nr_telefon(nrTelefon), SEDII(sedii) {}
+    Cinema(const std::string &numeCinema, const std::string &siteWeb, const std::string &nrTelefon, const std::vector<SediuCinema> &sedii) : nume_cinema(numeCinema), site_web(siteWeb), nr_telefon(nrTelefon), Sedii(sedii) {}
 
 
-    CINEMA(const CINEMA &copie){
+    Cinema(const Cinema &copie){
         this->nume_cinema=copie.nume_cinema;
         this->site_web=copie.site_web;
         this->nr_telefon=copie.nr_telefon;
-        for(const auto & SEDII_CINEMA : copie.SEDII){
-            this->SEDII.push_back(SEDII_CINEMA);
+        for(const auto & SediuCinema : copie.Sedii){
+            this->Sedii.push_back(SediuCinema);
         }
     }
 
-    CINEMA& operator=(const CINEMA& copie){
+    Cinema& operator=(const Cinema& copie){
         if(this != &copie){
+
             this->nume_cinema=copie.nume_cinema;
             this->site_web=copie.site_web;
             this->nr_telefon=copie.nr_telefon;
-            for(const auto & SEDII_CINEMA: copie.SEDII){
-                this->SEDII.push_back(SEDII_CINEMA);
-            }}
+            for(const auto & SediuCinema: copie.Sedii){
+                this->Sedii.push_back(SediuCinema);}
+        }
         return *this;
     }
 
-    ~CINEMA(){
+    ~Cinema(){
         std::cout<<"Destructor";
     }
 
-    friend std::ostream &operator<<(std::ostream &os, const CINEMA &cinema) {
-        os << "nume_cinema: " << cinema.nume_cinema << " site_web: " << cinema.site_web << " nr_telefon: " << cinema.nr_telefon << " SEDII_CINEMA: " << std::endl;
-        for(const auto & CINEMA : cinema.SEDII)
-            os << CINEMA << std::endl;
+    friend std::ostream &operator<<(std::ostream &os, const Cinema &cinema) {
+        os << "nume_cinema: " << cinema.nume_cinema << " site_web: " << cinema.site_web << " nr_telefon: " << cinema.nr_telefon << " SediuCinema: " << std::endl;
+        for(const auto & SediuCinema : cinema.Sedii)
+            os << SediuCinema << std::endl;
         return os;
     }
 
 };
 
-class FILME{
+class Film{
 private:
     std::string nume_film;
     std::string gen_film;
     std::string ora_de_vizionare;
-    std::string tecnologie;
+    std::string tehnologie;
     int durata_film;
     float pret_bilet;
 
 public:
-    FILME(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare,const std::string &tecnologie, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tecnologie(tecnologie), durata_film(durataFilm), pret_bilet(pretBilet) {}
+    Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tecnologie, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tecnologie), durata_film(durataFilm), pret_bilet(pretBilet) {}
 
-    friend std::ostream &operator<<(std::ostream &os, const FILME &filme) {
-        os << "nume_film: " << filme.nume_film << " gen_film: " << filme.gen_film << " ora_de_vizionare: "<< filme.ora_de_vizionare << " tecnologie: " << filme.tecnologie << " durata_film: " << filme.durata_film<< " pret_bilet: " << filme.pret_bilet << std::endl;
+    friend std::ostream &operator<<(std::ostream &os, const Film &film) {
+        os << "nume_film: " << film.nume_film << " gen_film: " << film.gen_film << " ora_de_vizionare: " << film.ora_de_vizionare << " tehnologie: " << film.tehnologie << " durata_film: " << film.durata_film << " pret_bilet: " << film.pret_bilet << std::endl;
 
         return os;
     }
 
 };
 
-class REZERVARI {
+class Rezervare {
 private:
-    std::string nume_client;
+    //std::string nume_client;
     std::string nume_film;
     int numar_locuri;
     int locuri_ocupate;
     int varsta;
-    std::vector <FILME> movie;
+    std::vector <Film> movie;
 public:
-    void adauga_film(FILME film){
+    void adauga_film(Film film){
         movie.push_back(film);}
 
-    REZERVARI(const std::string &numeClient, const std::string &numeFilm, int numarLocuri, int locuriOcupate,int varsta, const std::vector<FILME> &movie) : nume_client(numeClient), nume_film(numeFilm), numar_locuri(numarLocuri), locuri_ocupate(locuriOcupate), varsta(varsta), movie(movie) {}
+    Rezervare(const std::string &numeFilm, int numarLocuri, int locuriOcupate, int varsta, const std::vector<Film> &movie) : nume_film(numeFilm), numar_locuri(numarLocuri), locuri_ocupate(locuriOcupate), varsta(varsta), movie(movie) {}
 
 
 
-    friend std::ostream &operator<<(std::ostream &os, const REZERVARI &rezervari) {
-        os << "nume_client: " << rezervari.nume_client << " nume_film: " << rezervari.nume_film << " numar_locuri: " << rezervari.numar_locuri << " locuri_ocupate: " << rezervari.locuri_ocupate << " varsta " << rezervari.varsta << std::endl;
-        for(const auto & FILME : rezervari.movie)
-            os << FILME << std::endl;
+    friend std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare) {
+        os << " nume_film: " << rezervare.nume_film << " numar_locuri: " << rezervare.numar_locuri << " locuri_ocupate: " << rezervare.locuri_ocupate << " varsta " << rezervare.varsta << std::endl;
+        for(const auto & Film : rezervare.movie)
+            os << Film << std::endl;
 
         return os;
     }
@@ -122,15 +123,46 @@ public:
 
 };
 
+class Client{
+private:
+    std::string nume_client;
+    std::vector<Rezervare> rezervare;
+public:
+    void adauga_rezervare(Rezervare rezervari){
+        rezervare.push_back(rezervari);
+    }
+
+    Client(const std::string &numeClient, const std::vector<Rezervare> &rezervare) : nume_client(numeClient), rezervare(rezervare) {}
+
+    friend std::ostream &operator<<(std::ostream &os, const Client &client) {
+        os << "nume_client: " << client.nume_client;
+        for(const auto & Rezervare : client.rezervare)
+            os << Rezervare << std::endl;
+
+        return os;
+    }
+};
+
 int main()
 {
-    SEDII_CINEMA b1{"Str.Radu Popescu", " Duminica este inchis"};
-    SEDII_CINEMA b2("Str.Oilor", " Program Non-stop");
-    SEDII_CINEMA b3("Str.Gica Popescu", " Vinerea este inchis");
-    CINEMA a1("Cinemplex", "www.cineplex.ro","0721319092",{});
+    SediuCinema b1{"Str.Radu Popescu", " Duminica este inchis"};
+    SediuCinema b2("Str.Oilor", " Program Non-stop");
+    SediuCinema b3("Str.Gica Popescu", " Vinerea este inchis");
+    Cinema a1("Cinemplex", "www.cineplex.ro", "0721319092", {});
+    Cinema a2("Cinema City", "www.cinemacity.ro", "0723459867",{});
     a1.adauga_sediu(b1);
-    FILME c1("Halloween", "Horror", "22:00", "2D", 140, 19.50);
-    REZERVARI d1("Laura", "Halloween", 100, 10, 20, {});
+    a1.adauga_sediu(b2);
+    a2.adauga_sediu(b3);
+    Film c1("Halloween", "Horror", "22:00", "2D", 140, 19.50);
+    Film c2("Happy", "Comedie", "19:30", "3D", 130, 22.50);
+    Rezervare d1( "Halloween", 100, 10, 20, {});
+    Rezervare d2( "Happy", 130, 40, 18, {});
     d1.adauga_film(c1);
+    d2.adauga_film(c2);
+    Client e1("Marian" ,{});
+    Client e2("Andreea", {});
+    e1.adauga_rezervare(d1);
+    e2.adauga_rezervare(d2);
+
 }
 
