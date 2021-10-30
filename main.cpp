@@ -4,7 +4,7 @@
 
 /// PROIECT OOP - tema 1
 /// Nume student : Codreanu Radu Stefan
-/// Nume profesor de laborator : Miculta Marius
+/// Nume profesor de laborator : Micluta Marius
 
 
 
