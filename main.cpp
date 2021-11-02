@@ -6,7 +6,7 @@
 /// Nume student : Codreanu Radu Stefan
 /// Nume profesor de laborator : Micluta Marius
 
-
+// FISIERE SEPARATE!!! .h / .cpp - pentru fiecare clasa!!
 
 #include<iostream>
 #include<vector>
@@ -18,6 +18,8 @@ class SediuCinema{
 private:
     std::string adresa;
     std::string program;
+    std::string <Sala> sali_cinema;
+    std::vector<Film> filme;
 public:
     SediuCinema(const std::string &adresa, const std::string &program) : adresa(adresa), program(program) {}  // Constructor initializare cu parametrii
 
@@ -81,8 +83,11 @@ private:
     std::string gen_film;
     std::string ora_de_vizionare;
     std::string tehnologie;
+    std::string pegi;
     int durata_film;
     float pret_bilet;
+    Sala sala_cinema;
+    std::vector<Rezervare> rezervari;
 
 public:
     Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tecnologie, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tecnologie), durata_film(durataFilm), pret_bilet(pretBilet) {}
@@ -97,12 +102,10 @@ public:
 
 class Rezervare {
 private:
-    //std::string nume_client;
-    std::string nume_film;
     int numar_locuri;
     int locuri_ocupate;
-    int varsta;
-    std::vector <Film> movie;
+    // functie rezervare loc (citeste nr_rand si scaun) -> True/1(ocupat - mesaj ca locul e ocupat) / -> False/0 (loc liber - rezervi - il faci True)
+    std::vector<Client> clienti(numar_locuri);
 public:
     void adauga_film(Film film){
         movie.push_back(film);}
@@ -126,7 +129,8 @@ public:
 class Client{
 private:
     std::string nume_client;
-    std::vector<Rezervare> rezervare;
+    int varsta;
+    // detalii client
 public:
     void adauga_rezervare(Rezervare rezervari){
         rezervare.push_back(rezervari);
@@ -142,6 +146,15 @@ public:
         return os;
     }
 };
+
+class Sala {
+private:
+    int id;
+    int nr_locuri;
+    int nr_randuri;
+    int nr_scaunePerrand
+    bool locuri_sala[nr_randuri][nr_scaunePerrand];
+}
 
 int main()
 {
