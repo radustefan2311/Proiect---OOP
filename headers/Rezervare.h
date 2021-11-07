@@ -18,13 +18,11 @@ public:
     Rezervare();
     Rezervare(int numarLocuri);
     Rezervare(int numarLocuri, const std::vector<Client> &clienti);
-
     friend std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare);
     void adauga_client(const Client client);
 
     int getNumarLocuri() const;
     void setNumarLocuri(int numarLocuri);
-
 
 
 
