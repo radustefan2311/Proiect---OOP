@@ -7,7 +7,8 @@
 
 #include <string>
 #include <vector>
-#include "Rezervare.h"
+#include <ostream>
+
 
 class Client{
 private:
@@ -20,6 +21,7 @@ public:
 
     Client();
     Client(const std::string &numeClient, const std::string &username, const std::string &parola, int varsta);
+
     friend std::ostream &operator<<(std::ostream &os, const Client &client);
 
     const std::string &getNumeClient() const;

@@ -5,22 +5,15 @@
 
 Film::Film(){}
 
-Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet, const Sala &salaCinema) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet), sala_cinema(salaCinema) {}
-
-Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet, const Sala &salaCinema, const std::vector<Rezervare> &rezervari) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet), sala_cinema(salaCinema), rezervari(rezervari) {}
+Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet) {}
 
 std::ostream &operator<<(std::ostream &os, const Film &film){
 
-    os << "nume_film: " << film.nume_film << " gen_film: " << film.gen_film << " ora_de_vizionare: " << film.ora_de_vizionare << " tehnologie: " << film.tehnologie << " pegi: " << film.pegi << " durata_film: " << film.durata_film << " pret_bilet: " << film.pret_bilet << " sala_cinema: " << film.sala_cinema;
-    for(const auto & Rezervare : film.rezervari)
-        os << Rezervare << std::endl;
+    os << "nume_film: " << film.nume_film << " gen_film: " << film.gen_film << " ora_de_vizionare: " << film.ora_de_vizionare << " tehnologie: " << film.tehnologie << " pegi: " << film.pegi << " durata_film: " << film.durata_film << " pret_bilet: " << film.pret_bilet;
     return os;
 
 }
 
-void Film::adauga_rezervare(const Rezervare rezervare) {
-    rezervari.push_back(rezervare);
-}
 
 const std::string &Film::getNumeFilm() const {
     return nume_film;
@@ -78,10 +71,3 @@ void Film::setPretBilet(float pretBilet) {
     pret_bilet = pretBilet;
 }
 
-const Sala &Film::getSalaCinema() const {
-    return sala_cinema;
-}
-
-void Film::setSalaCinema(const Sala &salaCinema) {
-    sala_cinema = salaCinema;
-}

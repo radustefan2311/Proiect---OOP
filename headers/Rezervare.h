@@ -7,12 +7,13 @@
 #include <vector>
 #include <iostream>
 #include "Client.h"
-#include "Film.h"
+class Film;
 
 class Rezervare {
 private:
     int numar_locuri;
     std::vector<Client> clienti;
+//    Film &film;
 public:
 
     Rezervare();

@@ -6,11 +6,9 @@ Client::Client() {}
 Client::Client(const std::string &numeClient, const std::string &username, const std::string &parola, int varsta) : nume_client(numeClient), username(username), parola(parola), varsta(varsta) {}
 
 std::ostream &operator<<(std::ostream &os, const Client &client) {
-    os << "nume_client: " << client.nume_client;
-
+    os << "nume_client: " << client.nume_client << " username: " << client.username << " parola: " << client.parola << " varsta: " << client.varsta;
     return os;
 }
-
 
 const std::string &Client::getNumeClient() const {
     return nume_client;
@@ -43,3 +41,4 @@ int Client::getVarsta() const {
 void Client::setVarsta(int varsta) {
     Client::varsta = varsta;
 }
+

@@ -13,6 +13,7 @@ private:
     int nr_scaunePerrand;
     static const int max_size = 40;
    ///bool locuri_sala[max_size][max_size];
+   // std unordered map
 
 public:
 
