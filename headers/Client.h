@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-#include <ostream>
+#include <iostream>
 
 
 class Client{
@@ -17,11 +17,11 @@ private:
     std::string parola;
     int varsta;
 
+
 public:
 
     Client();
     Client(const std::string &numeClient, const std::string &username, const std::string &parola, int varsta);
-
     friend std::ostream &operator<<(std::ostream &os, const Client &client);
 
     const std::string &getNumeClient() const;
@@ -35,7 +35,6 @@ public:
 
     int getVarsta() const;
     void setVarsta(int varsta);
-
 
 };
 

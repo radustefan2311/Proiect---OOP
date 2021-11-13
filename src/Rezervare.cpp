@@ -10,9 +10,9 @@ Rezervare::Rezervare(int numarLocuri, const std::vector<Client> &clienti) : numa
 
 std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare){
 
-    os << "numar_locuri: " << rezervare.numar_locuri;
+    os << "numar_locuri: " << rezervare.numar_locuri << "\n";
     for(const auto & Client : rezervare.clienti)
-        os << Client << std::endl;
+        os << Client << "\n";
     return os;
 }
 
@@ -26,6 +26,30 @@ int Rezervare::getNumarLocuri() const {
 
 void Rezervare::setNumarLocuri(int numarLocuri) {
     numar_locuri = numarLocuri;
+}
+
+void Rezervare::functie_login(std::string nume) {
+
+    for(const auto & client:clienti)
+        if(client.getNumeClient().compare(nume)==0)
+        {
+            std::cout<<"Introduceti parola: ";
+            std::string parola;
+            std::cin>>parola;
+            if(client.getParola().compare(parola)==0)
+            {
+                std::cout<<"Bine ati venit! \n";
+                std::cout<<client << "\n";
+                x=0;
+                break;
+
+            }
+            else { std::cout << "Parola pe care ati introdus-o este gresita" << "\n";}
+        } else
+            x=1;
+
+
+
 }
 
 

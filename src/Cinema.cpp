@@ -32,12 +32,12 @@ void Cinema::adauga_sediu(const SediuCinema sediu) {
 }
 
 Cinema::~Cinema() {
-    std::cout<<"Destructor apelat";};
+    std::cout<<"Destructor apelat"<<"\n";};
 
 std::ostream &operator<<(std::ostream &os, const Cinema &cinema) {
-    os << "nume_cinema: " << cinema.nume_cinema << " site_web: " << cinema.site_web << " nr_telefon: " << cinema.nr_telefon << " SediuCinema: " << std::endl;
+    os << "nume_cinema: " << cinema.nume_cinema << " site_web: " << cinema.site_web << " nr_telefon: " << cinema.nr_telefon << " SediuCinema: " << "\n";
     for(const auto & SediuCinema : cinema.Sedii)
-        os << SediuCinema << std::endl;
+        os << SediuCinema << "\n";
     return os;
 }
 

@@ -20,6 +20,7 @@ private:
     std::string pegi; // eventual initializat tot in clasa mostenita
     int durata_film;
     float pret_bilet;
+
     //Sala sala_cinema;
 
 
@@ -29,7 +30,7 @@ public:
     Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet);
     friend std::ostream &operator<<(std::ostream &os, const Film &film);
 
-
+    void restrictie_varsta(Client e);
 
     const std::string &getNumeFilm() const;
     void setNumeFilm(const std::string &numeFilm);
@@ -54,11 +55,6 @@ public:
 
 
 };
-
-
-
-
-
 
 
 

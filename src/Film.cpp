@@ -9,7 +9,7 @@ Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::s
 
 std::ostream &operator<<(std::ostream &os, const Film &film){
 
-    os << "nume_film: " << film.nume_film << " gen_film: " << film.gen_film << " ora_de_vizionare: " << film.ora_de_vizionare << " tehnologie: " << film.tehnologie << " pegi: " << film.pegi << " durata_film: " << film.durata_film << " pret_bilet: " << film.pret_bilet;
+    os << "nume_film: " << film.nume_film << " gen_film: " << film.gen_film << " ora_de_vizionare: " << film.ora_de_vizionare << " tehnologie: " << film.tehnologie << " pegi: " << film.pegi << " durata_film: " << film.durata_film << " pret_bilet: " << film.pret_bilet << "varsta" << "\n";
     return os;
 
 }
@@ -70,4 +70,19 @@ float Film::getPretBilet() const {
 void Film::setPretBilet(float pretBilet) {
     pret_bilet = pretBilet;
 }
+
+void Film::restrictie_varsta(Client e) {
+
+    if((e.getVarsta() < 18) && (this->getPegi() == "18+")){
+
+        std::cout << "Nu puteti viziona acest film din cauza varstei dumneavoastra."<<"\n";
+
+    }
+
+    else std::cout<<"Felicitari, indepliniti conditile de varsta necesare." << "\n";
+
+}
+
+
+
 

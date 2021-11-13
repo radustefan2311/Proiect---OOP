@@ -13,6 +13,7 @@ class Rezervare {
 private:
     int numar_locuri;
     std::vector<Client> clienti;
+    bool x;
 //    Film &film;
 public:
 
@@ -21,11 +22,10 @@ public:
     Rezervare(int numarLocuri, const std::vector<Client> &clienti);
     friend std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare);
     void adauga_client(const Client client);
+    void functie_login(std::string nume);
 
     int getNumarLocuri() const;
     void setNumarLocuri(int numarLocuri);
-
-
 
 
 };
