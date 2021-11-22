@@ -27,7 +27,7 @@ Cinema& Cinema::operator=(const Cinema &copie) {
     return *this;
 }
 
-void Cinema::adauga_sediu(const SediuCinema sediu) {
+void Cinema::adauga_sediu(const SediuCinema &sediu) {
     Sedii.push_back(sediu);
 }
 

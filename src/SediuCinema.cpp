@@ -21,15 +21,11 @@ std::ostream &operator<<(std::ostream &os, const SediuCinema &cinema) {
 
 }
 
-void SediuCinema::adauga_film(Film film) {
+void SediuCinema::adauga_film(const Film &film) {
     filme.push_back(film);
 }
 
-//void SediuCinema::adauga_sala(Sala sala) {
-//    sali_cinema.push_back(sala);
-//}
-
-void SediuCinema::adauga_rezervare(Rezervare rezervare)  {
+void SediuCinema::adauga_rezervare(const Rezervare &rezervare)  {
     rezervari.push_back(rezervare);
 }
 

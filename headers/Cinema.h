@@ -20,7 +20,7 @@ public:
     Cinema& operator=(const Cinema& copie);
     ~Cinema();
     friend std::ostream &operator<<(std::ostream &os, const Cinema &cinema);
-    void adauga_sediu(const SediuCinema sediu);
+    void adauga_sediu(const SediuCinema &sediu);
 
     const std::string &getNumeCinema() const;
     void setNumeCinema(const std::string &numeCinema);

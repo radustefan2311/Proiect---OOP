@@ -8,7 +8,6 @@
 #include <vector>
 #include <iostream>
 #include "Rezervare.h"
-#include "Sala.h"
 #include "Client.h"
 
 class Film{
@@ -21,8 +20,7 @@ private:
     int durata_film;
     float pret_bilet;
 
-    //Sala sala_cinema;
-
+    
 
 public:
 

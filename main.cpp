@@ -2,8 +2,7 @@
 // Created by Radu on 22.10.2021.
 //
 
-/// PROIECT OOP - tema 1
-/// Nume student : Codreanu Radu Stefan
+/// PROIECT OOP - tema 1/// Nume student : Codreanu Radu Stefan
 /// Nume profesor de laborator : Micluta Marius
 
 
@@ -16,7 +15,7 @@
 #include "headers/Cinema.h"
 #include "headers/Film.h"
 #include "headers/Rezervare.h"
-#include "headers/Sala.h"
+
 
 ///using namespace std;
 
@@ -52,7 +51,7 @@ int main()
     b2.adauga_rezervare(d2);
 
     c1.restrictie_varsta( e1);
-    d1.functie_login("Andrei Serban");
+
 
     return 0;
 

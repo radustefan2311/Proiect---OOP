@@ -10,7 +10,7 @@ class SediuCinema{
 private:
     std::string adresa;
     std::string program;
-    //std::vector <Sala> sali_cinema;
+
     std::vector <Film> filme;
     std::vector<Rezervare> rezervari;
 public:
@@ -21,9 +21,8 @@ public:
     SediuCinema(const std::string &adresa, const std::string &program, const std::vector<Film> &filme, const std::vector<Rezervare> &rezervari);
 
     friend std::ostream &operator<<(std::ostream &os, const SediuCinema &cinema);
-    void adauga_film(Film film);
-   // void adauga_sala(Sala sala);
-    void adauga_rezervare(Rezervare rezervare);
+    void adauga_film(const Film &film);
+    void adauga_rezervare(const Rezervare &rezervare);
 
     const std::string &getAdresa() const;
     void setAdresa(const std::string &adresa);
