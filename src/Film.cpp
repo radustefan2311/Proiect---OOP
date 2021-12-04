@@ -8,7 +8,7 @@ int Film::id_max = 1;
 
 Film::Film() : id(id_max) {id_max++;}
 
-Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet),id(id_max) {
+Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, int pegi, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet),id(id_max) {
     id_max++;
     if (durata_film < 60)
         throw eroare_durata();
@@ -27,6 +27,7 @@ Film::Film(const Film &copie) : id(id_max) {
     id_max++;
 }
 
+Film::~Film() {}
 
 std::ostream &operator<<(std::ostream &os, const Film &film){
 
@@ -68,11 +69,11 @@ void Film::setTehnologie(const std::string &tehnologie) {
     Film::tehnologie = tehnologie;
 }
 
-const std::string &Film::getPegi() const {
+int Film::getPegi() const {
     return pegi;
 }
 
-void Film::setPegi(const std::string &pegi) {
+void Film::setPegi(int pegi) {
     Film::pegi = pegi;
 }
 
@@ -103,7 +104,7 @@ void Film::setIdMax(int idMax) {
 
 void Film::restrictie_varsta(Client &client) {
 
-    if((client.getVarsta() < 18) && (this->getPegi() == "18+")){
+    if((client.getVarsta() < 18) && (this->getPegi() == 18)){
 
         throw varsta_minima();
 
@@ -111,6 +112,22 @@ void Film::restrictie_varsta(Client &client) {
     else std::cout<<"Felicitari, indepliniti conditile de varsta necesare." << "\n";
 
 }
+
+void Film::afisare(std::ostream &os) const {
+
+    const auto &film = *this;
+    os << film.nume_film << " " << film.gen_film << " " << film.ora_de_vizionare << " " << film.tehnologie <<  " " << film.durata_film << " " << film.pret_bilet << std::endl;
+
+}
+
+
+
+
+
+
+
+
+
 
 
 

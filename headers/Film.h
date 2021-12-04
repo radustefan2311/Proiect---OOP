@@ -9,26 +9,31 @@
 #include <iostream>
 #include "Rezervare.h"
 #include "Client.h"
+#include <memory>
 
 class Film{
 private:
     const int id;
     static int id_max;
+protected:
     std::string nume_film;
     std::string gen_film; // mostenire tipuri de film
     std::string ora_de_vizionare;
     std::string tehnologie;
-    std::string pegi; // eventual initializat tot in clasa mostenita
+    int pegi;
     int durata_film;
     float pret_bilet;
-
+    virtual void afisare(std::ostream &os) const;
 public:
 
     Film();
-    Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet);
+    Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, int pegi, int durataFilm, float pretBilet);
     Film(const Film &copie);
+    virtual ~Film() = 0;
+
     friend std::ostream &operator<<(std::ostream &os, const Film &film);
 
+    virtual std::shared_ptr <Film> clone() const = 0;
     void restrictie_varsta(Client &client);
 
     const std::string &getNumeFilm() const;
@@ -43,17 +48,18 @@ public:
     const std::string &getTehnologie() const;
     void setTehnologie(const std::string &tehnologie);
 
-    const std::string &getPegi() const;
-    void setPegi(const std::string &pegi);
+    float getPretBilet() const;
+    void setPretBilet(float pretBilet);
 
     int getDurataFilm() const;
     void setDurataFilm(int durataFilm);
 
-    float getPretBilet() const;
-    void setPretBilet(float pretBilet);
-
     static int getIdMax();
     static void setIdMax(int idMax);
+
+    int getPegi() const;
+
+    void setPegi(int pegi);
 
 };
 

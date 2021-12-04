@@ -5,19 +5,20 @@
 #include <vector>
 #include <iostream>
 #include "Film.h"
+#include <memory>
 
 class SediuCinema{
 private:
     std::string adresa;
     std::string program;
 
-    std::vector <Film> filme;
+    std::vector<std::shared_ptr<Film>> filme;
     std::vector<Rezervare> rezervari;
 public:
 
     SediuCinema();
     SediuCinema(const std::string &adresa, const std::string &program);
-    SediuCinema(const std::string &adresa, const std::string &program, const std::vector<Film> &filme, const std::vector<Rezervare> &rezervari);
+    SediuCinema(const std::string &adresa, const std::string &program, const std::vector<std::shared_ptr<Film>> filme, const std::vector<Rezervare> &rezervari);
 
     friend std::ostream &operator<<(std::ostream &os, const SediuCinema &cinema);
     void adauga_film(const Film &film);
