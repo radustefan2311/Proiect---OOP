@@ -15,7 +15,7 @@
 #include "headers/Cinema.h"
 #include "headers/Film.h"
 #include "headers/Rezervare.h"
-
+#include "headers/Erori_Film.h"
 
 ///using namespace std;
 
@@ -32,7 +32,7 @@ int main()
     a1.adauga_sediu(b1);
     a2.adauga_sediu(b2);
 
-    Film c1("Halloween","Horror","22:30","2D","18+",120,22.10 );
+    Film c1("Halloween","Horror","22:30","2D","18+",120,22.50 );
     Film c2("Spider-Man", "Action", "17:30", "3D", "13+", 180, 25.30);
 
     b1.adauga_film(c1);
@@ -52,9 +52,14 @@ int main()
 
     c1.restrictie_varsta( e1);
 
-
+    try{
+            Client e3("Radu Stefan", "Radu2311", "rad231", 17);
+            c1.restrictie_varsta(e3);
+    }
+    catch(eroare_film &eroare) {
+        std::cout << eroare.what() << std::endl;
+    }
     return 0;
 
 
 }
-

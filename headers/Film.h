@@ -29,7 +29,7 @@ public:
     Film(const Film &copie);
     friend std::ostream &operator<<(std::ostream &os, const Film &film);
 
-    void restrictie_varsta(Client e);
+    void restrictie_varsta(Client &client);
 
     const std::string &getNumeFilm() const;
     void setNumeFilm(const std::string &numeFilm);

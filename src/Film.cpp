@@ -1,6 +1,8 @@
 
 
 #include "../headers/Film.h"
+#include "../headers/Erori_Film.h"
+
 
 int Film::id_max = 1;
 
@@ -8,6 +10,10 @@ Film::Film() : id(id_max) {id_max++;}
 
 Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet),id(id_max) {
     id_max++;
+    if (durata_film < 60)
+        throw eroare_durata();
+    if ((pret_bilet < 20) || (pret_bilet > 100 ))
+        throw eroare_pret();
 }
 
 Film::Film(const Film &copie) : id(id_max) {
@@ -94,14 +100,14 @@ void Film::setIdMax(int idMax) {
     id_max = idMax;
 }
 
-void Film::restrictie_varsta(Client e) {
 
-    if((e.getVarsta() < 18) && (this->getPegi() == "18+")){
+void Film::restrictie_varsta(Client &client) {
 
-        std::cout << "Nu puteti viziona acest film din cauza varstei dumneavoastra."<<"\n";
+    if((client.getVarsta() < 18) && (this->getPegi() == "18+")){
+
+        throw varsta_minima();
 
     }
-
     else std::cout<<"Felicitari, indepliniti conditile de varsta necesare." << "\n";
 
 }
