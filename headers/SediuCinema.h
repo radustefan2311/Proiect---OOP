@@ -17,7 +17,6 @@ public:
 
     SediuCinema();
     SediuCinema(const std::string &adresa, const std::string &program);
-
     SediuCinema(const std::string &adresa, const std::string &program, const std::vector<Film> &filme, const std::vector<Rezervare> &rezervari);
 
     friend std::ostream &operator<<(std::ostream &os, const SediuCinema &cinema);

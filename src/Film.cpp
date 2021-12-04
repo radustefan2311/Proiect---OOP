@@ -2,10 +2,25 @@
 
 #include "../headers/Film.h"
 
+int Film::id_max = 1;
 
-Film::Film(){}
+Film::Film() : id(id_max) {id_max++;}
 
-Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet) {}
+Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet) : nume_film(numeFilm), gen_film(genFilm), ora_de_vizionare(oraDeVizionare), tehnologie(tehnologie), pegi(pegi), durata_film(durataFilm), pret_bilet(pretBilet),id(id_max) {
+    id_max++;
+}
+
+Film::Film(const Film &copie) : id(id_max) {
+    this->nume_film=copie.nume_film;
+    this->gen_film=copie.gen_film;
+    this-> ora_de_vizionare=copie. ora_de_vizionare;
+    this-> tehnologie=copie.tehnologie;
+    this-> pegi=copie.pegi;
+    this-> durata_film=durata_film;
+    this-> pret_bilet=copie.pret_bilet;
+    id_max++;
+}
+
 
 std::ostream &operator<<(std::ostream &os, const Film &film){
 
@@ -71,6 +86,14 @@ void Film::setPretBilet(float pretBilet) {
     pret_bilet = pretBilet;
 }
 
+int Film::getIdMax() {
+    return id_max;
+}
+
+void Film::setIdMax(int idMax) {
+    id_max = idMax;
+}
+
 void Film::restrictie_varsta(Client e) {
 
     if((e.getVarsta() < 18) && (this->getPegi() == "18+")){
@@ -82,6 +105,9 @@ void Film::restrictie_varsta(Client e) {
     else std::cout<<"Felicitari, indepliniti conditile de varsta necesare." << "\n";
 
 }
+
+
+
 
 
 

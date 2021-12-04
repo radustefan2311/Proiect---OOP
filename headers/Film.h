@@ -12,6 +12,8 @@
 
 class Film{
 private:
+    const int id;
+    static int id_max;
     std::string nume_film;
     std::string gen_film; // mostenire tipuri de film
     std::string ora_de_vizionare;
@@ -20,12 +22,11 @@ private:
     int durata_film;
     float pret_bilet;
 
-    
-
 public:
 
     Film();
     Film(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, const std::string &pegi, int durataFilm, float pretBilet);
+    Film(const Film &copie);
     friend std::ostream &operator<<(std::ostream &os, const Film &film);
 
     void restrictie_varsta(Client e);
@@ -51,6 +52,8 @@ public:
     float getPretBilet() const;
     void setPretBilet(float pretBilet);
 
+    static int getIdMax();
+    static void setIdMax(int idMax);
 
 };
 
