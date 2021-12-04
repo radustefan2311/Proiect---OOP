@@ -31,7 +31,7 @@ Film::~Film() {}
 
 std::ostream &operator<<(std::ostream &os, const Film &film){
 
-    os << "nume_film: " << film.nume_film << " gen_film: " << film.gen_film << " ora_de_vizionare: " << film.ora_de_vizionare << " tehnologie: " << film.tehnologie << " pegi: " << film.pegi << " durata_film: " << film.durata_film << " pret_bilet: " << film.pret_bilet << "varsta" << "\n";
+    film.afisare(os);
     return os;
 
 }

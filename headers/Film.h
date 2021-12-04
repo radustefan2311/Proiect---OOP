@@ -58,7 +58,6 @@ public:
     static void setIdMax(int idMax);
 
     int getPegi() const;
-
     void setPegi(int pegi);
 
 };

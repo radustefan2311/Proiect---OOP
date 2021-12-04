@@ -16,6 +16,7 @@
 #include "headers/Film.h"
 #include "headers/Rezervare.h"
 #include "headers/Erori_Film.h"
+#include "headers/Gen_Filme.h"
 
 ///using namespace std;
 
@@ -32,8 +33,9 @@ int main()
     a1.adauga_sediu(b1);
     a2.adauga_sediu(b2);
 
-    Film c1("Halloween","Horror","22:30","2D","18+",120,22.50 );
-    Film c2("Spider-Man", "Action", "17:30", "3D", "13+", 180, 25.30);
+    Horror c1("Halloween","Horror","22:30","2D",18,120,22.50,1967,"Lee Curtis" );
+    Actiune c2("Spider-Man", "Action", "17:30", "3D", 13, 180, 25.30, 2002,"Tobey Maguire");
+
 
     b1.adauga_film(c1);
     b2.adauga_film(c2);
@@ -59,7 +61,11 @@ int main()
     catch(eroare_film &eroare) {
         std::cout << eroare.what() << std::endl;
     }
+
+
+
     return 0;
+
 
 
 }
