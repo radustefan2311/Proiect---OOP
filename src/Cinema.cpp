@@ -35,7 +35,7 @@ Cinema::~Cinema() {
     std::cout<<"Destructor apelat"<<"\n";};
 
 std::ostream &operator<<(std::ostream &os, const Cinema &cinema) {
-    os << "nume_cinema: " << cinema.nume_cinema << " site_web: " << cinema.site_web << " nr_telefon: " << cinema.nr_telefon << " SediuCinema: " << "\n";
+    os << "nume_cinema: " << cinema.nume_cinema <<"\n" << " site_web: " << cinema.site_web <<"\n" << " nr_telefon: " << cinema.nr_telefon <<"\n" << " SediuCinema:-> " << "\n";
     for(const auto & SediuCinema : cinema.Sedii)
         os << SediuCinema << "\n";
     return os;

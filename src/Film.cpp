@@ -36,6 +36,12 @@ std::ostream &operator<<(std::ostream &os, const Film &film){
 
 }
 
+void Film::afisare(std::ostream &os) const {
+
+    const auto &film = *this;
+    os << film.nume_film << " " << film.gen_film << " " << film.ora_de_vizionare << " " << film.tehnologie <<  " " << film.durata_film << " " << film.pret_bilet << std::endl;
+
+}
 
 const std::string &Film::getNumeFilm() const {
     return nume_film;
@@ -112,15 +118,6 @@ void Film::restrictie_varsta(Client &client) {
     else std::cout<<"Felicitari, indepliniti conditile de varsta necesare." << "\n";
 
 }
-
-void Film::afisare(std::ostream &os) const {
-
-    const auto &film = *this;
-    os << film.nume_film << " " << film.gen_film << " " << film.ora_de_vizionare << " " << film.tehnologie <<  " " << film.durata_film << " " << film.pret_bilet << std::endl;
-
-}
-
-
 
 
 

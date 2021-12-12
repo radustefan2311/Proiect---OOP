@@ -26,16 +26,30 @@ int main()
 
     Cinema a1("Cinema City", "www.cinemacity.ro", " 0724567972", {});
     Cinema a2("Cineplex", "www.cineplex.ro", "0757351857", {});
+    Cinema a3("LineCinema","www.linecinema.com","04373214",{});
+    Cinema a4("CinemaIndependenta","www.cinemaindependenta.ro","032131232",{});
+    Cinema a5;
+    Cinema a6;
+
+    /// Verificam constructorul de copiere explicit.
+
+    a5 = a3;
+    a6 = a5;
 
     SediuCinema b1("Bucuresti","Vineri este inchis",{},{});
     SediuCinema b2("Cluj-Napoca","Duminica este inchis",{},{});
+    SediuCinema b3("Constanta","Deschis doar in timpul saptamanii",{},{});
+    SediuCinema b4("Targoviste", "Deschis doar in weekend",{},{});
 
     a1.adauga_sediu(b1);
     a2.adauga_sediu(b2);
 
+    std::cout<<a1;
+
     Horror c1("Halloween","Horror","22:30","2D",18,120,22.50,1967,"Lee Curtis" );
     Actiune c2("Spider-Man", "Action", "17:30", "3D", 13, 180, 25.30, 2002,"Tobey Maguire");
 
+    std::cout<<c1;
 
     b1.adauga_film(c1);
     b2.adauga_film(c2);

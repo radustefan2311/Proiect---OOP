@@ -30,6 +30,7 @@ public:
     const std::string &getProgram() const;
     void setProgram(const std::string &program);
 
+
 };
 
 

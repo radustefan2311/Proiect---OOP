@@ -10,7 +10,7 @@ SediuCinema::SediuCinema(const std::string &adresa, const std::string &program, 
 
 std::ostream &operator<<(std::ostream &os, const SediuCinema &cinema) {
 
-    os << "adresa: " << cinema.adresa << " program: " << cinema.program << "\n";
+    os << "adresa: " << cinema.adresa <<"\n" << " program: " << cinema.program << "\n";
     for(const auto & Film : cinema.filme)
         os << *Film << "\n";
 //    for(const auto & Sala : cinema.sali_cinema)
@@ -45,6 +45,8 @@ const std::string &SediuCinema::getProgram() const {
 void SediuCinema::setProgram(const std::string &program) {
     SediuCinema::program = program;
 }
+
+
 
 
 
