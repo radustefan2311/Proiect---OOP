@@ -12,7 +12,7 @@ Film::Film(const std::string &numeFilm, const std::string &genFilm, const std::s
     id_max++;
     if (durata_film < 60)
         throw eroare_durata();
-    if ((pret_bilet < 20) || (pret_bilet > 100 ))
+    if ((pret_bilet < 15) || (pret_bilet > 100 ))
         throw eroare_pret();
 }
 
@@ -112,7 +112,7 @@ void Film::restrictie_varsta(Client &client) {
 
     if((client.getVarsta() < 18) && (this->getPegi() == 18)){
 
-        throw varsta_minima();
+        throw eroare_varsta_minima();
 
     }
     else std::cout<<"Felicitari, indepliniti conditile de varsta necesare." << "\n";

@@ -10,9 +10,9 @@ public:
 eroare_film(const std::string &arg);
 };
 
-class varsta_minima : public eroare_film {
+class eroare_varsta_minima : public eroare_film {
 public:
-    varsta_minima();
+    eroare_varsta_minima();
 };
 
 class eroare_durata : public eroare_film {
