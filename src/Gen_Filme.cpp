@@ -1,6 +1,8 @@
 
 #include "../headers/Gen_Filme.h"
 
+
+
 Horror::Horror(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, int pegi, int durataFilm, float pretBilet, int graphicScenes, const std::string &horrorGenre) : Film(numeFilm, genFilm, oraDeVizionare, tehnologie, pegi, durataFilm, pretBilet), graphic_scenes(graphicScenes), horror_genre(horrorGenre) {}
 
 Horror::~Horror() = default;
@@ -9,7 +11,7 @@ Comedie::Comedie(const std::string &numeFilm, const std::string &genFilm, const 
 
 Comedie::~Comedie() = default;
 
-Actiune::Actiune(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, int pegi, int durataFilm, float pretBilet, int bugetCgi, const std::string &stuntActor) : Film(numeFilm, genFilm, oraDeVizionare, tehnologie, pegi, durataFilm, pretBilet), buget_cgi(bugetCgi), stunt_actor(stuntActor) {}
+Actiune::Actiune(const std::string &numeFilm, const std::string &genFilm, const std::string &oraDeVizionare, const std::string &tehnologie, int pegi, int durataFilm, float pretBilet, int bugetCgi, const std::string &stuntActor, int pretOchelari) : Film(numeFilm, genFilm, oraDeVizionare, tehnologie, pegi, durataFilm, pretBilet), buget_cgi(bugetCgi), stunt_actor(stuntActor), pret_ochelari(pretOchelari) {}
 
 Actiune::~Actiune() = default;
 
@@ -26,17 +28,21 @@ std::shared_ptr <Film> Actiune::clone() const {
 }
 
 void Horror::afisare(std::ostream &os) const {
+    Horror::atentionare_spectator();
     os << graphic_scenes <<" "<< horror_genre <<" ";
     Film::afisare(os);
 }
 
 void Comedie::afisare(std::ostream &os) const {
+    Comedie::categorie_varsta();
     os << tip_umor <<" ";
     Film::afisare(os);
 }
 
 void Actiune::afisare(std::ostream &os) const {
-    os << buget_cgi <<"$" <<" "<< stunt_actor <<" ";
+    Actiune::ochelari_3D();
+    os << buget_cgi <<"$" <<" "<< stunt_actor <<" " << pret_ochelari <<" ";
     Film::afisare(os);
 }
+
 

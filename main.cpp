@@ -80,9 +80,9 @@ int main()
     Comedie f2("The Dictator","Comedie","16:20","2D",18,150,22.30,"Dark Humor");
     Comedie f3("Free Guy","Comedie","20:00","3D",13,190,27.30,"Observational Humor");
 
-    Actiune j1("Spider-Man", "Action", "17:30", "3D", 13, 180, 29.50, 1000000,"Mark Lee");
-    Actiune j2("Transporter", "Action", "20:30", "3D", 13, 140, 29.50, 500000,"Kurt Huss");
-    Actiune j3("John-Wick", "Action", "22:10", "2D", 16, 165, 22.50, 20000,"Keanu Kirk");
+    Actiune j1("Spider-Man", "Action", "17:30", "3D IMAX", 13, 180, 29.50, 1000000,"Mark Lee",10);
+    Actiune j2("Transporter", "Action", "20:30", "3D", 13, 140, 29.50, 500000,"Kurt Huss",5);
+    Actiune j3("John-Wick", "Action", "22:10", "2D", 16, 165, 22.50, 20000,"Keanu Kirk",0);
 
 
     b1.adauga_film(h1);
@@ -100,6 +100,10 @@ int main()
     std::cout << b5 << "\n";
     std::cout<<"-----------------------------------------"<<"\n";
     std::cout << b7 << "\n";
+    std::cout<<"-----------------------------------------"<<"\n";
+    std::cout << b6 << "\n";
+    std::cout<<"-----------------------------------------"<<"\n";
+    std::cout << b3 << "\n";
 
 
 
@@ -134,6 +138,7 @@ int main()
     b2.adauga_rezervare(d2);
 
     h1.restrictie_varsta( e1);
+    std::cout<<"-----------------------------------------"<<"\n";
 
     try{
             Client e3("Radu Stefan", "Radu2311", "rad231", 17);
