@@ -8,7 +8,7 @@ Client<T>::Client(const std::string &numeClient, const std::string &username, co
 
 template <typename T>
 std::ostream &operator<<(std::ostream &os, const class Client<T> &client) {
-    os << "nume_client: " << client.nume_client << " username: " << client.username << " parola: " << client.parola <<"varsta " <<client.varsta << "\n";
+    os << "nume_client: " << client.nume_client << " username: " << client.username << " parola: nu aveti acces ! "  <<"varsta " <<client.varsta << "\n";
     return os;
 }
 

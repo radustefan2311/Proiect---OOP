@@ -159,7 +159,7 @@ int main()
     CinemaTown->adauga_client(e2);
 
     std::cout << *CinemaTown << "\n";
-    std::cout << d1;
+    std::cout << e4;
 
     return 0;
 
