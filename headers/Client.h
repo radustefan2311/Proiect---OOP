@@ -10,6 +10,12 @@
 #include <iostream>
 
 template <typename T>
+class Client;
+
+template <typename T>
+std::ostream& operator<<(std::ostream& o, const Client<T>& client);
+
+template <typename T>
 class Client{
 private:
     std::string nume_client;
@@ -22,7 +28,7 @@ public:
 
     Client();
     Client(const std::string &numeClient, const std::string &username, const std::string &parola, T varsta);
-    friend std::ostream &operator<<(std::ostream &os, const Client<int> &client);
+    friend std::ostream &operator<< <>(std::ostream &os, const class Client<int> &client);
 
     const std::string &getNumeClient() const;
     void setNumeClient(const std::string &numeClient);
@@ -36,8 +42,8 @@ public:
     int getVarsta() const;
     void setVarsta(int varsta);
 
-};
 
+};
 
 
 

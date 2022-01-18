@@ -7,7 +7,7 @@
 #include <vector>
 #include <iostream>
 #include "Client.h"
-class Film;
+
 
 class Rezervare {
 private:
@@ -19,7 +19,11 @@ public:
     Rezervare();
     Rezervare(int numarLocuri);
     Rezervare(int numarLocuri, const std::vector<Client<int>> &clienti);
-    friend std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare);
+
+
+    friend std::ostream &operator<< (std::ostream &os, const class Rezervare &rezervare);
+
+
     void adauga_client(const Client<int> &client);
 
     int getNumarLocuri() const;

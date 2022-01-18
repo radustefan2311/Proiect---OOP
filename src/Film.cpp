@@ -22,7 +22,7 @@ Film::Film(const Film &copie) : id(id_max) {
     this-> ora_de_vizionare=copie. ora_de_vizionare;
     this-> tehnologie=copie.tehnologie;
     this-> pegi=copie.pegi;
-    this-> durata_film=durata_film;
+    this-> durata_film=copie.durata_film;
     this-> pret_bilet=copie.pret_bilet;
     id_max++;
 }

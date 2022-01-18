@@ -1,14 +1,14 @@
 
 #include "../headers/Client.h"
 template <typename T>
-Client<T>::Client() {}
+Client<T>::Client() = default;
 
 template <typename T>
 Client<T>::Client(const std::string &numeClient, const std::string &username, const std::string &parola, T varsta) : nume_client(numeClient), username(username), parola(parola), varsta(varsta) {}
 
 template <typename T>
-std::ostream &operator<<(std::ostream &os, const Client<T> &client) {
-    os << "nume_client: " << client.nume_client << " username: " << client.username << " parola: " << client.parola << "\n";
+std::ostream &operator<<(std::ostream &os, const class Client<T> &client) {
+    os << "nume_client: " << client.nume_client << " username: " << client.username << " parola: " << client.parola <<"varsta " <<client.varsta << "\n";
     return os;
 }
 
@@ -52,6 +52,9 @@ void Client<T>::setVarsta(int varsta) {
     Client::varsta = varsta;
 }
 
+
 template class Client<int>;
 template class Client<unsigned int>;
+template
+std::ostream& operator<< <>(std::ostream& o, const Client<int>& x);
 

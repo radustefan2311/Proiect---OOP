@@ -8,11 +8,14 @@ Rezervare::Rezervare(int numarLocuri) : numar_locuri(numarLocuri) {}
 
 Rezervare::Rezervare(int numarLocuri, const std::vector<Client<int>> &clienti) : numar_locuri(numarLocuri), clienti(clienti) {}
 
-std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare){
+
+
+std::ostream &operator<< (std::ostream &os, const class Rezervare &rezervare){
 
     os << "numar_locuri: " << rezervare.numar_locuri << "\n";
-    for(const auto & Client : rezervare.clienti)
-        os << Client << "\n";
+    for(int i = 0; i < rezervare.clienti.size(); i++){
+       os << rezervare.clienti[i] << "\n";
+    }
     return os;
 }
 

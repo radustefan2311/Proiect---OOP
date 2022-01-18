@@ -158,7 +158,8 @@ int main()
     CinemaTown->adauga_client(e1);
     CinemaTown->adauga_client(e2);
 
-    std::cout << *CinemaTown;
+    std::cout << *CinemaTown << "\n";
+    std::cout << d1;
 
     return 0;
 
