@@ -17,18 +17,19 @@
 #include "headers/Rezervare.h"
 #include "headers/Erori_Film.h"
 #include "headers/Gen_Filme.h"
+#include "headers/Meniu.h"
 
 ///using namespace std;
 
 
 int main()
 {
-
-    Cinema a1("Cinema City", "www.cinemacity.ro", " 0724567972", {});
-    Cinema a2("Cineplex", "www.cineplex.ro", "0757351857", {});
-    Cinema a3("LineCinema","www.linecinema.com","04373214",{});
-    Cinema a4("CinemaIndependenta","www.cinemaindependenta.ro","032131232",{});
-    Cinema a5("CoreCinema","www.corecinema.com","032131231",{});
+    cinema_builder cinema_build;
+    Cinema a1 = cinema_build.nume_cinema("Cinema City").site_web("www.cinemacity.ro").nr_telefon("0724567972").Sedii({}).build();
+    Cinema a2 = cinema_build.nume_cinema("Cineplex").site_web("www.cineplex.ro").nr_telefon("0757351857").Sedii({}).build();
+    Cinema a3 = cinema_build.nume_cinema("LineCinema").site_web("www.linecinema.com").nr_telefon("04373214").Sedii({}).build();
+    Cinema a4 = cinema_build.nume_cinema("CinemaIndependenta").site_web("www.cinemaindependenta.ro").nr_telefon("032131232").Sedii({}).build();
+    Cinema a5 = cinema_build.nume_cinema("CoreCinema").site_web("www.corecinema.com").nr_telefon("032131231").Sedii({}).build();
 
     Cinema a6; ///constructor default de initializare.
 
@@ -111,13 +112,14 @@ int main()
 
 
 
-    Client e1("Andrei Serban","Andrei123","and231",18);
-    Client e2("Maria Teodora","mariath123","mar212", 14);
-    Client e3("Radu Stefan","radu2311","rad2311", 22);
-    Client e4("Luca Dragusin","luc534","luc4312", 11);
-    Client e5("Paul Titu","paul1","dsad232", 8);
-    Client e6("Cristina Teodora","crisssss","32133", 30);
-    Client e7("Marina Tudorache","marinii23","trov321", 26);
+    Client<int> e1("Andrei Serban","Andrei123","and231",18);
+    Client<int> e2("Maria Teodora","mariath123","mar212", 14);
+    Client<int> e3("Radu Stefan","radu2311","rad2311", 22);
+    Client<int> e4("Luca Dragusin","luc534","luc4312", 11);
+    Client<int> e5("Paul Titu","paul1","dsad232", 8);
+    Client<int> e6("Cristina Teodora","crisssss","32133", 30);
+    Client<int> e7("Marina Tudorache","marinii23","trov321", 26);
+    Client<unsigned int> e8("Georgescu Marian","mar321","204343",45);
 
     Rezervare d1(100,{});
     Rezervare d2(200,{});
@@ -141,14 +143,22 @@ int main()
     std::cout<<"-----------------------------------------"<<"\n";
 
     try{
-            Client e3("Radu Stefan", "Radu2311", "rad231", 17);
+            Client<int> e3("Radu Stefan", "Radu2311", "rad231", 17);
             h1.restrictie_varsta(e3);
     }
     catch(eroare_film &eroare) {
         std::cout << eroare.what() << std::endl;
     }
 
+    auto CinemaTown = Meniu::get_menu();
+    CinemaTown->adauga_cinema(a1);
+    CinemaTown->adauga_cinema(a2);
+    CinemaTown->adauga_sediu(b1);
+    CinemaTown->adauga_sediu(b2);
+    CinemaTown->adauga_client(e1);
+    CinemaTown->adauga_client(e2);
 
+    std::cout << *CinemaTown;
 
     return 0;
 

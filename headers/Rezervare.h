@@ -12,15 +12,15 @@ class Film;
 class Rezervare {
 private:
     int numar_locuri;
-    std::vector<Client> clienti;
+    std::vector<Client<int>> clienti;
 
 public:
 
     Rezervare();
     Rezervare(int numarLocuri);
-    Rezervare(int numarLocuri, const std::vector<Client> &clienti);
+    Rezervare(int numarLocuri, const std::vector<Client<int>> &clienti);
     friend std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare);
-    void adauga_client(const Client &client);
+    void adauga_client(const Client<int> &client);
 
     int getNumarLocuri() const;
     void setNumarLocuri(int numarLocuri);

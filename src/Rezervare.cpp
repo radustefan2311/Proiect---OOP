@@ -6,7 +6,7 @@ Rezervare::Rezervare(){}
 
 Rezervare::Rezervare(int numarLocuri) : numar_locuri(numarLocuri) {}
 
-Rezervare::Rezervare(int numarLocuri, const std::vector<Client> &clienti) : numar_locuri(numarLocuri), clienti(clienti) {}
+Rezervare::Rezervare(int numarLocuri, const std::vector<Client<int>> &clienti) : numar_locuri(numarLocuri), clienti(clienti) {}
 
 std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare){
 
@@ -16,7 +16,7 @@ std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare){
     return os;
 }
 
-void Rezervare::adauga_client(const Client &client) {
+void Rezervare::adauga_client(const Client<int> &client) {
     clienti.push_back(client);
 }
 

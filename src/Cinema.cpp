@@ -2,9 +2,9 @@
 
 Cinema::Cinema() {}
 
-Cinema::Cinema(const std::string &numeCinema, const std::string &siteWeb, const std::string &nrTelefon) : nume_cinema(numeCinema), site_web(siteWeb), nr_telefon(nrTelefon) {}
+//Cinema::Cinema(const std::string &numeCinema, const std::string &siteWeb, const std::string &nrTelefon) : nume_cinema(numeCinema), site_web(siteWeb), nr_telefon(nrTelefon) {}
 
-Cinema::Cinema(const std::string &numeCinema, const std::string &siteWeb, const std::string &nrTelefon, const std::vector<SediuCinema> &sedii) : nume_cinema(numeCinema), site_web(siteWeb), nr_telefon(nrTelefon), Sedii(sedii) {}
+//Cinema::Cinema(const std::string &numeCinema, const std::string &siteWeb, const std::string &nrTelefon, const std::vector<SediuCinema> &sedii) : nume_cinema(numeCinema), site_web(siteWeb), nr_telefon(nrTelefon), Sedii(sedii) {}
 
 Cinema::Cinema(const Cinema &copie) {
     this->nume_cinema=copie.nume_cinema;

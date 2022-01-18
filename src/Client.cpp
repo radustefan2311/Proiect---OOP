@@ -1,46 +1,57 @@
 
 #include "../headers/Client.h"
+template <typename T>
+Client<T>::Client() {}
 
-Client::Client() {}
+template <typename T>
+Client<T>::Client(const std::string &numeClient, const std::string &username, const std::string &parola, T varsta) : nume_client(numeClient), username(username), parola(parola), varsta(varsta) {}
 
-Client::Client(const std::string &numeClient, const std::string &username, const std::string &parola, int varsta) : nume_client(numeClient), username(username), parola(parola), varsta(varsta) {}
-
-std::ostream &operator<<(std::ostream &os, const Client &client) {
+template <typename T>
+std::ostream &operator<<(std::ostream &os, const Client<T> &client) {
     os << "nume_client: " << client.nume_client << " username: " << client.username << " parola: " << client.parola << "\n";
     return os;
 }
 
-const std::string &Client::getNumeClient() const {
+template <typename T>
+const std::string &Client<T>::getNumeClient() const {
     return nume_client;
 }
 
-void Client::setNumeClient(const std::string &numeClient) {
+template <typename T>
+void Client<T>::setNumeClient(const std::string &numeClient) {
     nume_client = numeClient;
 }
 
-const std::string &Client::getUsername() const {
+template <typename T>
+const std::string &Client<T>::getUsername() const {
     return username;
 }
 
-void Client::setUsername(const std::string &username) {
+template <typename T>
+void Client<T>::setUsername(const std::string &username) {
     Client::username = username;
 }
 
-const std::string &Client::getParola() const {
+template <typename T>
+const std::string &Client<T>::getParola() const {
     return parola;
 }
 
-void Client::setParola(const std::string &parola) {
+template <typename T>
+void Client<T>::setParola(const std::string &parola) {
     Client::parola = parola;
 }
 
-int Client::getVarsta() const {
+template <typename T>
+int Client<T>::getVarsta() const {
     return varsta;
 }
 
-void Client::setVarsta(int varsta) {
+template <typename T>
+void Client<T>::setVarsta(int varsta) {
     Client::varsta = varsta;
 }
 
-
+template class Client<int>;
+template class Client<unsigned int>;
 

@@ -108,7 +108,7 @@ void Film::setIdMax(int idMax) {
 }
 
 
-void Film::restrictie_varsta(Client &client) {
+void Film::restrictie_varsta(Client<int> &client) {
 
     if((client.getVarsta() < 18) && (this->getPegi() == 18)){
 

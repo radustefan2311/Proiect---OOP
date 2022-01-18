@@ -4,7 +4,7 @@
 
 #include "../headers/Login.h"
 
-void Login::functie_login(const Client &client) {
+void Login::functie_login(const Client<int> &client) {
 
 
 

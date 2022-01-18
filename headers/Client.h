@@ -9,20 +9,20 @@
 #include <vector>
 #include <iostream>
 
-
+template <typename T>
 class Client{
 private:
     std::string nume_client;
     std::string username;
     std::string parola;
-    int varsta;
+    T varsta;
 
 
 public:
 
     Client();
-    Client(const std::string &numeClient, const std::string &username, const std::string &parola, int varsta);
-    friend std::ostream &operator<<(std::ostream &os, const Client &client);
+    Client(const std::string &numeClient, const std::string &username, const std::string &parola, T varsta);
+    friend std::ostream &operator<<(std::ostream &os, const Client<int> &client);
 
     const std::string &getNumeClient() const;
     void setNumeClient(const std::string &numeClient);

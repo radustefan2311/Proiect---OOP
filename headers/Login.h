@@ -12,9 +12,9 @@
 
 class Login {
 
-    std::vector<Client> logare;
+    std::vector<Client<int>> logare;
 public:
-    void functie_login(const Client &client);
+    void functie_login(const Client<int> &client);
 
 };
 

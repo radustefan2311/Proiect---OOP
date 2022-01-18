@@ -34,7 +34,7 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Film &film);
 
     virtual std::shared_ptr <Film> clone() const = 0;
-    void restrictie_varsta(Client &client);
+    void restrictie_varsta(Client<int> &client);
 
     const std::string &getNumeFilm() const;
     void setNumeFilm(const std::string &numeFilm);
