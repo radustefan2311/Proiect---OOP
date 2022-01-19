@@ -16,7 +16,7 @@ class Login {
     std::vector<Client<int>> logare;
 public:
     void functie_login(const Client<int> &client);
-    void schimba_parola(Client<int> &client);
+    void functie_schimbare_parola(Client<int> &client);
 };
 
 

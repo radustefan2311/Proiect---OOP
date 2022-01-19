@@ -163,7 +163,7 @@ int main()
     std::cout << e4;
     Login functie;
     functie.functie_login(e1);
-    functie.schimba_parola(e1);
+    functie.functie_schimbare_parola(e1);
     functie.functie_login(e1);
 
 

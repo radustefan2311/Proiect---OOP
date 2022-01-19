@@ -27,7 +27,7 @@ void Login::functie_login(const Client<int> &client) {
 }
 
 
-void Login::schimba_parola(Client<int> &client) {
+void Login::functie_schimbare_parola(Client<int> &client) {
 
     int login_verific = 0;
     for(int i = 0; i < 5; i++) {
