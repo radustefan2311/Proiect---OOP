@@ -18,6 +18,7 @@
 #include "headers/Erori_Film.h"
 #include "headers/Gen_Filme.h"
 #include "headers/Meniu.h"
+#include "headers/Login.h"
 
 ///using namespace std;
 
@@ -160,6 +161,11 @@ int main()
 
     std::cout << *CinemaTown << "\n";
     std::cout << e4;
+    Login functie;
+    functie.functie_login(e1);
+    functie.schimba_parola(e1);
+    functie.functie_login(e1);
+
 
     return 0;
 

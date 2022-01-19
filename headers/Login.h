@@ -6,6 +6,7 @@
 #include"Rezervare.h"
 #include <iostream>
 #include <vector>
+#include "../criptare/digestpp.hpp"
 
 #ifndef PROIECT___OOP_LOGIN_H
 #define PROIECT___OOP_LOGIN_H
@@ -15,14 +16,8 @@ class Login {
     std::vector<Client<int>> logare;
 public:
     void functie_login(const Client<int> &client);
-
+    void schimba_parola(Client<int> &client);
 };
-
-
-
-
-
-
 
 
 
