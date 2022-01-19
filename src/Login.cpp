@@ -5,6 +5,7 @@ using namespace digestpp;
 void Login::functie_login(const Client<int> &client) {
     int login_verific = 0;
     for(int i = 0; i < 5; i++) {
+        std::cout << "Pentru logare va rugam sa va introduceti datele contului dumneavoastra (aveti 5 incercari la dispozitie)." << "\n";
         std::cout << "Introduceti username-ul: ";
         std::string username;
         std::cin >> username;
@@ -30,11 +31,12 @@ void Login::schimba_parola(Client<int> &client) {
 
     int login_verific = 0;
     for(int i = 0; i < 5; i++) {
-        std::cout << "Introduceti username-ul: ";
+        std::cout << "Ati solicitat schimbarea parolei !" << "\n";
+        std::cout << "Reitroduceti username-ul: ";
         std::string username;
         std::cin >> username;
         if (username == client.getUsername()) {
-            std::cout << "Introduceti parola: ";
+            std::cout << "Introduceti parola veche: ";
             std::string parola;
             std::cin >> parola;
             if (blake2b(256).absorb(parola).hexdigest() == client.getParola()){
