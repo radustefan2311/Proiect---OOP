@@ -1,12 +1,13 @@
 
 #include "../headers/Client.h"
-
+#include "../criptare/digestpp.hpp"
+using namespace digestpp;
 
 template <typename T>
 Client<T>::Client() = default;
 
 template <typename T>
-Client<T>::Client(const std::string &numeClient, const std::string &username, const std::string &parola, T varsta) : nume_client(numeClient), username(username), parola(parola), varsta(varsta) {}
+Client<T>::Client(const std::string &numeClient, const std::string &username, const std::string &parola, T varsta) : nume_client(numeClient), username(username), parola(blake2b(256).absorb(parola).hexdigest()), varsta(varsta) {}
 
 template <typename T>
 std::ostream &operator<<(std::ostream &os, const class Client<T> &client) {

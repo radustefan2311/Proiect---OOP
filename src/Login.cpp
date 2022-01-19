@@ -12,7 +12,7 @@ void Login::functie_login(const Client<int> &client) {
             std::cout << "Introduceti parola: ";
             std::string parola;
             std::cin >> parola;
-            if (blake2b(256).absorb(parola).hexdigest() == blake2b(256).absorb(client.getParola()).hexdigest()){
+            if (blake2b(256).absorb(parola).hexdigest() ==client.getParola()){
                 std::cout << "Bine ati venit!"<<"\n";
                 login_verific = 1;
                 break;
@@ -37,11 +37,11 @@ void Login::schimba_parola(Client<int> &client) {
             std::cout << "Introduceti parola: ";
             std::string parola;
             std::cin >> parola;
-            if (blake2b(256).absorb(parola).hexdigest() == blake2b(256).absorb(client.getParola()).hexdigest()){
+            if (blake2b(256).absorb(parola).hexdigest() == client.getParola()){
                 std::string parola_noua;
                 std::cout << "Introduceti noua parola: ";
                 std::cin >> parola_noua;
-                client.setParola(parola_noua);
+                client.setParola(blake2b(256).absorb(parola_noua).hexdigest());
                 login_verific = 1;
                 std::cout << "Parola a fost modificata cu succes !" << "\n";
                 break;
