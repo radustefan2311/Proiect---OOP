@@ -1,7 +1,11 @@
-Proiect OOP - TEMA 1 - finalizata
+Proiect OOP - Aplicatie rezervari cinema
+Profesor coordonator - Marius Micluta-Campeanu
 
-Inceput TEMA 2 - impartit fisiere .h si .cpp - check
+TEMA 1 - Finalizata
 
+TEMA 2 - Finalizata
+
+TEMA 3 - Finalizata
 
 link pentru ascii art : fig1 si fig2 http://loveascii.com/smilies.html
                         
