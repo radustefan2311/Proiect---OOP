@@ -10,4 +10,4 @@ TEMA 3 - Finalizata
 
 link pentru ascii art : fig1 si fig2 http://loveascii.com/smilies.html
                         
-
+Pentru criptare am folosit : https://github.com/kerukuro/digestpp
